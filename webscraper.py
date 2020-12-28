@@ -2,12 +2,15 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
 
-import time
-
 # we will be using chrome
 # driver = webdriver.Chrome("/usr/bin/chromedriver")
-tempLink = "https://www.bestbuy.ca/en-ca/product/asus-tuf-24-fhd-144hz-1ms-gtg-ips-led-freesync-gaming-monitor-vg249q-black/14405119"
+productLink = "https://www.bestbuy.ca/en-ca/product/asus-tuf-24-fhd-144hz-1ms-gtg-ips-led-freesync-gaming-monitor-vg249q-black/14405119"
 
+# throw away email client id
+# 1070153309962-2t8u0k6gj53jl9k8rfmnr2lq5aq40t72.apps.googleusercontent.com
+
+# client secret
+# oy0SDoAkyqspfs05zFweddfn
 
 link = input("Enter input Link: ")
 driver = webdriver.Chrome()
@@ -23,5 +26,6 @@ if "InStock" in availability:
 
 elif "OutOfStock" in availability:
     print("Whoops, I'm out of stock!")
+    import alert
 
 driver.quit()

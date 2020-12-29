@@ -5,18 +5,8 @@ from bs4 import BeautifulSoup
 productLink = input("Enter Best Buy Product URL: ")
 
 # we will be using chrome
-driver = webdriver.Chrome("/usr/bin/chromedriver")
-
-
-# throw away email client id
-# 1070153309962-2t8u0k6gj53jl9k8rfmnr2lq5aq40t72.apps.googleusercontent.com
-
-# client secret
-# oy0SDoAkyqspfs05zFweddfn
-
-link = input("Enter input Link: ")
 driver = webdriver.Chrome()
-driver.get(link)
+driver.get(productLink)
 
 # We're now going to find the availability tag which is a link tag with an href
 availability = driver.find_element(

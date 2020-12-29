@@ -16,7 +16,7 @@ context = ssl.create_default_context()
 
 # Email information
 sender = "AlertMonitoringSystem@gmail.com"
-reciever = "pythondebugging11022@gmail.com"
+reciever = login
 
 # alternate version allows for html option for hyperlinks
 message = MIMEMultipart("alternative")

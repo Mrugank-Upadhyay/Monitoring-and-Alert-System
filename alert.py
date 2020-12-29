@@ -9,8 +9,8 @@ from email.mime.multipart import MIMEMultipart
 port = 465
 
 # account login & password (of dummy account)
-login = ""
-password = ""
+login = "pythondebugging11022@gmail.com"
+password = "password11022"
 
 context = ssl.create_default_context()
 

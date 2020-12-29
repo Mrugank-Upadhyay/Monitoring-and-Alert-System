@@ -14,10 +14,5 @@ availability = driver.find_element(
 
 if "InStock" in availability:
     # we now have to send ourselves an email notification about the availability
-    print("I'm in stock!")
-
-elif "OutOfStock" in availability:
-    print("Whoops, I'm out of stock!")
     import alert
-
-driver.quit()
+    driver.quit()

@@ -1,10 +1,13 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 productLink = input("Enter Best Buy Product URL: ")
 
-# we will be using chrome
-driver = webdriver.Chrome()
+# we will be using a headless implementation of chrome
+option = Options()
+option.headless = True
+driver = webdriver.Chrome(options=option)
 driver.get(productLink)
 
 # We're now going to find the availability tag which is a link tag with an href

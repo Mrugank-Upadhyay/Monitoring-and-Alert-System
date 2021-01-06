@@ -24,12 +24,12 @@ def webscrape(link):
         driver.quit()
 
 
-with open("Monitor.txt", 'r') as monitorFile:
+with open("/home/mrugank/Documents/Python Projects/Monitoring-and-Alert-System/Monitor.txt", 'r') as monitorFile:
     lines = monitorFile.readlines()
-    regSearch = re.compile(r'https://www.bestbuy.c(a|om)(\S)*(\s)?')
+    regSearch = re.compile(r'https://www.bestbuy.c(a|om)(\S)+(\s)?')
     for line in lines:
         urlMatch = regSearch.search(line)
-        url = urlMatch.group(0)
+        url = urlMatch.group(0) if urlMatch else None
         if url is not None:
             processedUrl = re.sub(
                 '^(.*)(?=https://www.bestbuy.c(a|om))', "", url)

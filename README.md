@@ -6,4 +6,4 @@ The script takes a list of urls from a text file and for each product, scrapes a
 
 The task scheduling is done using Cron jobs on Linux and Windows Task Scheduler on Windows.
 
-Considering many online stores don't have alert systems, I might create separate webscraping scripts for them and then roll everything into a single script. That way, it can simply analyze the url to identify which script to use and I can get a general alert system going, and I'd only need my single wishlist.txt to stay organized!
+Considering many online stores don't have alert systems, I might create separate webscraping functions for them and then roll everything into a single script. That way, it can simply analyze the url to identify which script to use and I can get a general alert system going, and I'd only need my single wishlist.txt to stay organized!

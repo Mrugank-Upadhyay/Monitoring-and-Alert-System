@@ -8,6 +8,7 @@ productLink = ""
 
 def webscrape(link):
     productLink = link
+    print(productLink)
     # we will be using a headless implementation of chrome
     option = Options()
     option.headless = True
@@ -20,17 +21,22 @@ def webscrape(link):
 
     if "InStock" in availability:
         # we now have to send ourselves an email notification about the availability
-        import alert
+        exec(open("/home/mrugank/Documents/Python Projects/Monitoring-and-Alert-System/alert.py", "r").read())
         driver.quit()
 
 
-with open("/home/mrugank/Documents/Python Projects/Monitoring-and-Alert-System/Monitor.txt", 'r') as monitorFile:
-    lines = monitorFile.readlines()
-    regSearch = re.compile(r'https://www.bestbuy.c(a|om)(\S)+(\s)?')
-    for line in lines:
-        urlMatch = regSearch.search(line)
-        url = urlMatch.group(0) if urlMatch else None
-        if url is not None:
-            processedUrl = re.sub(
-                '^(.*)(?=https://www.bestbuy.c(a|om))', "", url)
-            webscrape(processedUrl)
+def main():
+    with open("/home/mrugank/Documents/Python Projects/Monitoring-and-Alert-System/Monitor.txt", 'r') as monitorFile:
+        lines = monitorFile.readlines()
+        regSearch = re.compile(r'https://www.bestbuy.c(a|om)(\S)+(\s)?')
+        for line in lines:
+            urlMatch = regSearch.search(line)
+            url = urlMatch.group(0) if urlMatch else None
+            if url is not None:
+                processedUrl = re.sub(
+                    '^(.*)(?=https://www.bestbuy.c(a|om))', "", url)
+                webscrape(processedUrl)
+
+
+if __name__ == '__main__':
+    main()
